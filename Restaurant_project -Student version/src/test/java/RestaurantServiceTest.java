@@ -25,6 +25,7 @@ class RestaurantServiceTest {
         restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Tiramisu",100);
     }
     //REFACTOR ALL THE REPEATED LINES OF CODE
 
@@ -70,12 +71,5 @@ class RestaurantServiceTest {
         assertEquals(initialNumberOfRestaurants + 1,service.getRestaurants().size());
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-    //<<<<<<<<<<Adding Test Case for sum of prices for selected menu Items>>>>>>>>
-    @Test
-    public void adding_selected_menu_items_should_return_sum_of_prices() {
-        double total_amount_selected_items=SelectedItems.getTotalPrice(List<Item> SelectedItemList);
-
-    }
 
 }

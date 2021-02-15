@@ -5,6 +5,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -20,6 +21,7 @@ class RestaurantTest {
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Chips",100);
         restaurant.addToMenu("Vegetable lasagne", 269);
     }
     //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -69,4 +71,28 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //<<<<<<<<<<Adding Test Case for sum of prices for selected menu Items>>>>>>>>
+    /*
+    @Test
+    public void adding_selected_menu_items_method_should_return_sum_of_Item_prices() {
+        //<<<Assuming UI will pass to me selected Item list from the menu shown
+        // << Since function is working on item level , adding implementation methods in restaurent class
+        restaurant.addToSelectedItemList("Sweet corn soup");
+        restaurant.addToSelectedItemList("Chips");
+
+        List<Item> SelectedItems = restaurant.getSelectedItemList();
+        Double sum = restaurant.calculateSelectedItemPrice(SelectedItems);
+
+        // sum of chips and Sweet Corn should be 119+100
+        assertThat(sum,equalsTo(219.0));
+    }
+
+    public void if_no_items_are_in_selected_list_method_should_return_zero() {
+        //if no items are selected, then sum should be zero
+        List<Item> SelectedItems = Restaurant.getSelectedItemList();
+        Double sum = Restaurant.calculateSelectedItemPrice(SelectedItems);
+
+        assertThat(sum,equalsTo(0.0));
+    }
+   */
 }
