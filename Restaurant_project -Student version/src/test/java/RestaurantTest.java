@@ -72,7 +72,6 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     //<<<<<<<<<<Adding Test Case for sum of prices for selected menu Items>>>>>>>>
-    /*
     @Test
     public void adding_selected_menu_items_method_should_return_sum_of_Item_prices() {
         //<<<Assuming UI will pass to me selected Item list from the menu shown
@@ -90,9 +89,10 @@ class RestaurantTest {
     public void if_no_items_are_in_selected_list_method_should_return_zero() {
         //if no items are selected, then sum should be zero
         List<Item> SelectedItems = Restaurant.getSelectedItemList();
+
         Double sum = Restaurant.calculateSelectedItemPrice(SelectedItems);
 
         assertThat(sum,equalsTo(0.0));
     }
-   */
+
 }
