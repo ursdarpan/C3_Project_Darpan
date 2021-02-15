@@ -7,6 +7,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalTime;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -80,19 +82,19 @@ class RestaurantTest {
         restaurant.addToSelectedItemList("Chips");
 
         List<Item> SelectedItems = restaurant.getSelectedItemList();
-        Double sum = restaurant.calculateSelectedItemPrice(SelectedItems);
+        int sum = restaurant.calculateSelectedItemPrice(SelectedItems);
 
         // sum of chips and Sweet Corn should be 119+100
-        assertThat(sum,equalsTo(219.0));
+        assertThat(sum,equalTo(219));
     }
-
+    @Test
     public void if_no_items_are_in_selected_list_method_should_return_zero() {
         //if no items are selected, then sum should be zero
-        List<Item> SelectedItems = Restaurant.getSelectedItemList();
+        List<Item> SelectedItems = restaurant.getSelectedItemList();
 
-        Double sum = Restaurant.calculateSelectedItemPrice(SelectedItems);
+        int sum = restaurant.calculateSelectedItemPrice(SelectedItems);
 
-        assertThat(sum,equalsTo(0.0));
+        assertThat(sum,equalTo(0));
     }
 
 }

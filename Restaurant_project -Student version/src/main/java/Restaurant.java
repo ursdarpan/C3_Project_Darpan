@@ -10,6 +10,13 @@ public class Restaurant {
     public LocalTime openingTime;
     public LocalTime closingTime;
     private List<Item> menu = new ArrayList<Item>();
+
+    public List<Item> getSelectedItemList() {
+        return Collections
+                .unmodifiableList(selectedItemList);
+    }
+
+    private List<Item> selectedItemList=new ArrayList<Item>();
     LocalTime currentTime;
 
     public Restaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
@@ -73,4 +80,17 @@ public class Restaurant {
         return name;
     }
 
+    public void addToSelectedItemList(String ItemName) {
+        Item item=findItemByName(ItemName);
+        selectedItemList.add(item);
+    }
+
+    public int calculateSelectedItemPrice(List<Item> selectedItems) {
+        int Amount=0;
+        for(Item item: selectedItems)
+        {
+            Amount = Amount + item.getPrice();
+        }
+        return Amount;
+    }
 }
